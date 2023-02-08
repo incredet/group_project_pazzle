@@ -12,7 +12,7 @@ def validate_row(board):
     False
     >>> validate_row(board = ["**** ****", "***1 ****", "**  3****",\
  "* 4 1****", "     9 5 ", " 6  83  *", "3   1  **", "  8  2***", "  2  ****"])
-    False
+    True
     """
     for row in board:
         for element in row:
@@ -50,6 +50,7 @@ def val_column(board: list) -> bool:
     """ this func rotates board to validate columns and validates them using validate_row
     >>> val_column(["**** ****","***1 ****","**  3****","* 4 1****",\
  "     9 5 "," 6  83  *","3   1  **","  8  2***","  2  ****"])
+    False
     """
     rotated = [
         "".join(column) for column in list(zip(*[list(row) for row in board]))
@@ -57,11 +58,13 @@ def val_column(board: list) -> bool:
     return validate_row(rotated)
 
 def validate_board(board: list) -> bool:
-    """ this func check is board is correct due to the rules
-    >>> validate_board(["**** ****","***1 ****","**  3****","* 4 1****",\
- "     9 5 "," 6  83  *","3   1  **","  8  2***","  2  ****"])
-    >>> validate_board(["**** ****","***1 ****","**  3****","* 4 1****",\
- "     9 5 "," 6  83  *","3      **","  8  2***","  2  ****"])
+    """
+    this func check is board is correct due to the rules
+    >>> validate_board(["**** ****", "***1 ****", "**  3****", "* 4 1****", "     9 5 ",\
+ " 6 183  *", "3   1  **", "  8  2***", "  2  ****"])
+    False
+    >>> validate_board(["**** ****","***1 ****","**  3****","* 4 1****", \
+"     9 5 "," 6  83  *","3      **","  8  2***","  2  ****"])
     True
     """
     return validate_row(board) and val_column(board) and check_color(board)
