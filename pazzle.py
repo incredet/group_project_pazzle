@@ -22,3 +22,12 @@ def check_col(board):
         j += 1
         number -= 1
     return True
+
+
+def column(board: list) -> bool:
+    """ """
+    rotated = [
+        "".join(column) for column in list(zip(*[list(row) for row in board]))
+        ]
+    return check_col(rotated)
+
