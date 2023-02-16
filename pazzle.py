@@ -68,3 +68,7 @@ def validate_board(board: list) -> bool:
     True
     """
     return validate_row(board) and val_column(board) and check_color(board)
+
+if __name__ == "__main__":
+    import doctest
+    print(doctest.testmod(verbose = True))
